@@ -18,7 +18,7 @@ def chatbot_interface():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.form['user_message']
-    sys_message = SystemMessage(content="You're a polite chatbot, keep your responses below 30 words.")
+    sys_message = SystemMessage(content="You're a polite chatbot, keep your responses below 30 words.") #dictates the chatbot's personality
     conversation_history = [sys_message, HumanMessage(content=user_message)] #stores all the conversation history between the user and chatbot
     prediction_message = chatmodel.predict_messages(conversation_history) #initializes the chatbot's response by looking at the conversation history
     chatbot_response = prediction_message.content 

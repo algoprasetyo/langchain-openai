@@ -5,4 +5,5 @@ HOW TO EXECUTE FILE
 4. Run app.py
 5) Open localhost:5000 on browser
 
-Bonuses:
+Bonus:
+- Change the sys_message content in line 21 of app.py to anything of your liking.

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+</head>
+<body>
+    <h1>Langchain + OpenAI Chatbot</h1>
+    <div id="chat-box"></div>
+    <div id="input-container">
+        <input id="user-message" type="text" placeholder="Type your message">
+        <button id="send-button">Send</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const userMessageInput = $("#user-message");
+            const sendButton = $("#send-button");
+            const chatBox = $("#chat-box");
+    
+            // Enable the input field and button when the page loads
+            userMessageInput.prop("disabled", false);
+            sendButton.prop("disabled", false);
+
+            // function for send button
+            sendButton.click(function(e) {
+                e.preventDefault();
+                const userMessage = userMessageInput.val();
+                userMessageInput.val("");
+                chatBox.append("<p><strong>You:</strong> " + userMessage + "</p");
+                
+                // Auto-scroll to the bottom of the chatbox
+                chatBox.scrollTop(chatBox[0].scrollHeight);    
+                
+                // Disables the send button and user message input while the chatbot is responding
+                sendButton.prop("disabled", true);
+                userMessageInput.prop("disabled", true);
+                
+                // Send the user message to the server (replace 'your_server_url' with the actual URL)
+                $.post("/chat", { user_message: userMessage }, function(response) {
+                    chatBox.append("<p><strong>Chatbot:</strong> " + response.chatbot_response + "</p>");
+                    sendButton.prop("disabled", false);
+                    userMessageInput.prop("disabled", false);
+                
+                // Auto-scroll to the bottom of the chatbox after chatbot response
+                chatBox.scrollTop(chatBox[0].scrollHeight);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

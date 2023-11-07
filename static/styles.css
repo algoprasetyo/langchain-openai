@@ -1,0 +1,77 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#input-container {
+    text-align: center;
+}
+
+
+/* Apply a background color to the entire page */
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(to right, red, yellow);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Style the chatbox container */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of viewport height */
+    width: 300vh;
+}
+
+/* Style the chatbox itself */
+#chat-box {
+    flex: 1;
+    border: 2px solid black;
+    background-color: #fff;
+    padding: 10px;
+    width: 900px; /* Set chat box width to 60% */
+    height: 300px;
+    overflow-y: scroll;
+    margin: 20px auto;
+    text-align: left; /* Left-align text inside the chatbox */
+}
+
+/* Style the chat form */
+#chat-form {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Style the user message input field */
+#user-message {
+    width: 50%; /* Adjust the width as needed to make it smaller */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block; /* Change to inline-block to place the button next to it */
+}
+
+/* Style the send button */
+#send-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; /* Display the button as inline-block to place it next to the input field */
+    vertical-align: middle; /* Align the button vertically to the middle of the input field */
+}
+
+#send-button:hover {
+    background-color: #0056b3;
+}
